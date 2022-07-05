@@ -1,0 +1,14 @@
+--> Explicación de la primera función:
+Para la primera función utilizo el comando sed 'd' el cual borra las lineas que coinciden con la restriccion, es por ello que para borrar la primera linea utilizo '1 d', ya que estoy haciendo referencia a la cabecera del archivo.
+
+
+--> Explicación de la segunda función:
+Para la segunda función utilizo la agrupación de comandos {} que permite agrupar comandos para que actúen como uno solo.
+Para llevar a cabo esta función comienzo indicando el nombre de la provincia sobre la que voy a trabajar --> /Provincia/ y por tanto los comandos que realice implicarán cambios solamente en las líneas donde se encuentre el nombre de dicha pronvincia.
+
+Como los datos que nos piden se corresponden con la 3ª,4ª,5ª y 6ª columna, comienzo eliminando la primera y la sexta aparición del caracter ';'. A continuación, borro todo lo que haya hasta el primer ; que encuentre y con eso consigo eliminar toda la parte izquierda de los datos que me interesan. Para borrar la parte de la derecha borro todo lo que encuentre desde el último ; en adelante. Finalmente, utilizo el comando w- para redirigir la salida a un fichero .dat.
+
+
+--> Explicación de la tercera función:
+Para la tercera función vuelvo a utilizar la agrupación de comandos {}. Lo primero que hago es obtener solamente las líneas en las que aparece 'Valladolid' eliminando el resto mediante el patrón '/Valladolid/!d'. Ahora, como en el fichero csv que nos dan aparece el nombre de la provincia entre el CPRO y el CMUN, que son datos que sí nos interesan, lo que hago es sustituir este nombre de la provincia con los ';' que aparecen delante y detrás por un '-' tal y como pide el ejercicio. Por último, solo queda eliminar los datos correspondientes al número de hombres y mujeres. Una opción para lograrlo sería eliminar el ';' que hay entre esos datos y proceder a borrar todo lo que haya después del último ';' que quedase, tal y como lo resolví en el ejercicio #2. Sin embargo, en esta ocasión lo voy a implementar de otra manera: elimino las últimas dos cifras que comiencen por ';' al final de cada línea.
+Finalmente, para mostrar la cabecera correspondiente, utilizo el comando '1i' con el cual consigo añadir la línea indicada al principio del fichero.
